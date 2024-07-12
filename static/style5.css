@@ -1,0 +1,95 @@
+/* Estilos para a página de envio de email */
+body {
+    background: #2A4CA8; /* Cor de fundo escura e atraente */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o padding padrão */
+    text-align: center; /* Alinha o texto ao centro */
+}
+
+/* Container centralizado para o formulário */
+.container {
+    width: 100%;
+    max-width: 600px; /* Largura máxima do container */
+    background-color: #fff; /* Cor de fundo do container */
+    padding: 20px; /* Espaçamento interno do container */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    position: relative; /* Posição relativa para o botão de fechar */
+}
+
+/* Estilos para o formulário de e-mail */
+.email-container {
+    text-align: center; /* Centraliza o texto dentro do container */
+}
+
+.email-form {
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Alinha os itens na vertical */
+    align-items: center; /* Alinha os itens ao centro */
+}
+
+/* Estilos para o rótulo do formulário */
+.email-form label {
+    margin-bottom: 10px; /* Espaço abaixo do rótulo */
+    font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilos para o campo de entrada de e-mail */
+.email-form input[type="email"] {
+    width: 100%; /* Largura completa */
+    max-width: 100%; /* Largura máxima */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaço abaixo do campo */
+    border: 1px solid #6b6666; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #f5f5f5; /* Cor de fundo do campo */
+    color: #333; /* Cor do texto */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilos para o botão de enviar */
+.email-form .btn-enviar {
+    background-color: #1023D1; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Remove borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+    transition: background-color 0.3s ease; /* Transição suave de cor */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.email-form .btn-enviar:hover {
+    background-color: #0B1784; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos para o botão de fechar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #d72828; /* Cor do botão de fechar */
+    border: 1px solid #d72828; /* Borda do botão de fechar */
+    border-radius: 50%; /* Bordas arredondadas */
+    background-color: white; /* Cor de fundo do botão de fechar */
+    padding: 5px; /* Espaçamento interno */
+    width: 30px; /* Largura do botão de fechar */
+    height: 30px; /* Altura do botão de fechar */
+    display: flex; /* Usa flexbox para centralizar o texto */
+    justify-content: center; /* Centraliza horizontalmente o texto */
+    align-items: center; /* Centraliza verticalmente o texto */
+    transition: background-color 0.3s ease; /* Transição suave de cor */
+}
+
+.close:hover {
+    background-color: #d72828; /* Cor de fundo ao passar o mouse */
+    color: white; /* Cor do texto ao passar o mouse */
+}

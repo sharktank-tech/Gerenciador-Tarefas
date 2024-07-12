@@ -1,0 +1,147 @@
+/* Estilos para o corpo da página inicial */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2A4CA8;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Estilos para o container principal */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilos para o título */
+h1 {
+    color: #DFE6FA;
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+}
+
+/* Estilos para o container das tarefas */
+.paragraphs-container {
+    width: 100%;
+    max-width: 800px; /* Limita a largura máxima do container */
+    margin: 0 auto; /* Centraliza o container */
+}
+
+/* Estilos para cada tarefa */
+.tarefa {
+    margin: 0 auto; /* Centraliza a tarefa */
+    width: 100%;
+    max-width: 500px;
+    background-color: #DFE6FA;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinha o texto à esquerda dentro da tarefa */
+}
+
+/* Estilos para rótulos e conteúdo da tarefa */
+.tarefa-info {
+    margin-bottom: 10px;
+}
+
+.tarefa-info p {
+    margin: 5px 0;
+}
+
+/* Estilos para o container de status */
+.status-container {
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Estilos para o contêiner de status quando o status é pendente */
+.status-container.status-pendente {
+    background-color: #D11E00;
+}
+
+/* Estilos para o contêiner de status quando o status é concluído */
+.status-container.status-concluido {
+    background-color: #1ca512;
+}
+
+.status-container p {
+    margin: 0;
+}
+
+/* Estilos para os botões de editar e excluir */
+.tarefa-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha os botões à direita dentro da tarefa */
+    margin-top: 10px; /* Espaçamento acima dos botões */
+}
+
+button.editar,
+button.excluir,
+.btn-adicionar,
+.btn-enviar {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+}
+
+button.editar {
+    background-color: #1023D1; /* Cor dos botões de editar */
+}
+
+button.excluir {
+    background-color: #D11E00; /* Cor dos botões de excluir */
+}
+
+.btn-adicionar {
+    background-color: #1023D1; /* Cor azul para o botão adicionar tarefa */
+    text-decoration: none; /* Remove o sublinhado padrão */
+}
+
+.btn-enviar {
+    background-color: #1023D1; /* Cor azul para o botão enviar relatório */
+    text-decoration: none; /* Remove o sublinhado padrão */
+}
+
+button.editar:hover,
+button.excluir:hover,
+.btn-adicionar:hover,
+.btn-enviar:hover {
+    background-color: #0B1784; /* Cor de hover para os botões */
+}
+
+/* Estilos para a label */
+label {
+    display: block;
+    text-align: center; /* Centraliza o texto da label */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Estilos de responsividade */
+@media (max-width: 600px) {
+    .tarefa, .status-container {
+        width: 100%;
+    }
+
+    .tarefa-buttons {
+        flex-direction: column; /* Empilha os botões verticalmente em dispositivos menores */
+    }
+
+    button.editar,
+    button.excluir,
+    .btn-adicionar,
+    .btn-enviar {
+        width: 100%; /* Largura total para ajuste em dispositivos menores */
+        margin: 10px 0; /* Espaçamento entre os botões */
+    }
+}

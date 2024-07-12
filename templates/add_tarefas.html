@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Tarefa</title>
+    <link rel="shortcut icon" href="static/images/lista-de-tarefas.png">
+    <link rel="stylesheet" href="static/style3.css">
+    <script>
+        // Função para obter a data atual no formato YYYY-MM-DD
+        function getDataAtual() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            var yyyy = today.getFullYear();
+
+            // Retorna a data no formato YYYY-MM-DD
+            return dd + '-' + mm + '-' + yyyy;
+        }
+
+        // Define a data atual como valor padrão para o campo de entrada de data
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('data').value = getDataAtual();
+        });
+    </script>
+</head>
+<body>
+    <h1>Adicionar Tarefa</h1>
+    <form action="/add_tarefas" method="POST" class="formulario-tarefa">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required>
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+
+        <input type="hidden" id="status" name="status" value="Pendente">
+
+        <button type="submit">Adicionar</button>
+        <a href="/" class="btn-cancelar">Cancelar</a>
+    </form>
+</body>
+</html>

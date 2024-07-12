@@ -1,0 +1,62 @@
+/* Estilos para o corpo da página editar_tarefas */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2A4CA8;
+    padding: 20px;
+    text-align: center; /* Centraliza todo o conteúdo na página */
+    margin: 0;
+}
+
+/* Estilos para o título */
+h1 {
+    color: #DFE6FA;
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+}
+
+/* Estilos para o formulário */
+form {
+    width: 50%;
+    margin: 0 auto; /* Centraliza o formulário na página */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para rótulos de entrada */
+label {
+    display: block; /* Coloca os rótulos em uma nova linha */
+    margin-bottom: 10px; /* Adiciona espaço abaixo de cada rótulo */
+    font-weight: bold; /* Deixa os rótulos em negrito */
+    text-align: left; /* Alinha os rótulos à esquerda */
+}
+
+/* Estilos para campos de entrada de texto e select */
+input[type="text"], select {
+    width: 100%; /* Define a largura do campo de entrada para ocupar toda a largura disponível */
+    padding: 10px; /* Adiciona espaçamento interno nos campos de entrada */
+    margin-bottom: 20px; /* Adiciona espaço abaixo de cada campo de entrada */
+    border-radius: 5px; /* Arredonda as bordas dos campos de entrada */
+    border: 1px solid #ccc; /* Adiciona uma borda ao redor dos campos de entrada */
+    box-sizing: border-box; /* Garante que o padding e a borda não aumentem a largura total */
+}
+
+/* Estilos para o botão de envio */
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #1023D1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0B1784;
+}
+
+/* Estilos para a mensagem de erro */
+p.error {
+    color: red;
+    font-style: italic;
+}

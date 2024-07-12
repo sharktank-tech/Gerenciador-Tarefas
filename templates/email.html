@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatório</title>
+  <!-- Define o shortcut na página do navegador -->
+  <link rel="shortcut icon" href="static/images/lista-de-tarefas.png">
+  <!-- Importa o CSS para estilizar a página -->
+  <link rel="stylesheet" href="static/style5.css">
+</head>
+<body>
+  <div class="container">
+    <div id="email-form" class="email-container">
+      <!-- Formulário para envio de e-mail -->
+      <form action="/enviar_email" method="post" class="email-form">
+        <label for="destinatario">Email do destinatário:</label>
+        <input type="email" id="destinatario" name="destinatario" placeholder="Digite o e-mail do destinatário" required>
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+    </div>
+  </div>
+  <!-- Botão de fechar (se necessário) -->
+  <button class="close" onclick="window.history.back()">&#10005;</button>
+</body>
+</html>

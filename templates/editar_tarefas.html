@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarefa</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/lista-de-tarefas.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}">
+</head>
+<body>
+    {% if tarefa %}
+        <h1>Editar Tarefa</h1>
+        <form action="/editar_tarefas/{{ tarefa[0] }}" method="POST">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" value="{{ tarefa[1] }}" required>
+            <br>
+            <!-- Campo de entrada para a data -->
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" value="{{ tarefa[2] }}" required>
+            <br>
+            <!-- Campo de entrada para o status -->
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Pendente" {% if tarefa[3] == "Pendente" %} selected {% endif %}>Pendente</option>
+                <option value="Concluído" {% if tarefa[3] == "Concluído" %} selected {% endif %}>Concluído</option>
+            </select>
+            <br>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    {% else %}
+        <!-- Exibir mensagem de erro -->
+        <p>Erro: Projeto não encontrada.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+    <link rel="shortcut icon" href="static/images/lista-de-tarefas.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+    <script src="static/scripts/script.js"></script> <!-- Include custom script -->
+</head>
+<body>
+    <div class="content">
+        <header>
+            <h1>Tarefas</h1>
+        </header>
+
+        <main>
+            <div class="paragraphs-container">
+                {% if data %}
+                    {% for tarefa in data %}
+                        <div class="tarefa">
+                            <div class="tarefa-info">
+                                <p>ID: {{ tarefa[0] }}</p>
+                                <p>Descrição: {{ tarefa[1] }}</p>
+                                <p>Data: {{ tarefa[2]|format_date }}</p> <!-- Aplica o filtro de formatação de data -->
+                            </div>
+                            <div class="status-container {% if tarefa[3] == 'Pendente' %}status-pendente{% elif tarefa[3] == 'Concluído' %}status-concluido{% endif %}">
+                                <p>Status:</p>
+                                <div class="status-content">{{ tarefa[3] }}</div>
+                            </div>
+                            <div class="tarefa-buttons">
+                                <form action="/editar_tarefas/{{ tarefa[0] }}" method="GET">
+                                    <button type="submit" class="editar">&#x270E; Editar</button>
+                                </form>
+                                <form action="/excluir_tarefas/{{ tarefa[0] }}" method="POST">
+                                    <button type="submit" class="excluir">&#x2212; Exclui</button>
+                                </form>
+                                <a href="/add_tarefas" class="btn-adicionar">&#x2b; Adicionar</a>
+                                <a href="/enviar_email" class="btn-enviar">&#x2709; Relatório</a>
+                            </div>
+                        </div>
+                        <hr class="linha-separadora">
+                    {% endfor %}
+                {% else %}
+                    <p>Nenhum resultado encontrado.</p>
+                {% endif %}
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>
