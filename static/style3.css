@@ -23,6 +23,13 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 600px) {
+    .formulario-tarefa {
+        width: 90%; /* Diminui a largura do formulário em dispositivos móveis */
+    }
+}
+
+
 /* Estilos para rótulos de entrada */
 label {
     display: block; /* Coloca os rótulos em uma nova linha */
