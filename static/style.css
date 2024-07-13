@@ -129,6 +129,10 @@ label {
 
 /* Estilos de responsividade */
 @media (max-width: 600px) {
+    .paragraphs-container {
+        width: 100%; /* Diminui a largura do container em dispositivos móveis */
+    }
+
     .tarefa, .status-container {
         width: 100%;
     }
@@ -143,5 +147,9 @@ label {
     .btn-enviar {
         width: 100%; /* Largura total para ajuste em dispositivos menores */
         margin: 10px 0; /* Espaçamento entre os botões */
+    }
+
+    .status-container {
+        width: 100%; /* Garante que o container de status ocupe toda a largura */
     }
 }
