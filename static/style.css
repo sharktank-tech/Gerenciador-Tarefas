@@ -130,7 +130,7 @@ label {
 /* Estilos de responsividade */
 @media (max-width: 600px) {
     .paragraphs-container {
-        width: 100%; /* Diminui a largura do container em dispositivos móveis */
+        width: 90%; /* Diminui a largura do container em dispositivos móveis */
     }
 
     .tarefa, .status-container {
