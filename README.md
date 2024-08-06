@@ -69,6 +69,3 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
     ```
     http://127.0.0.1:5000
     ```
-
-## Estrutura do Projeto
-
