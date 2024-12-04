@@ -16,7 +16,7 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
 - HTML
 - CSS
 - JavaScript (jQuery)
-- SQLite (ou outra base de dados configurada)
+- SQLite
 
 ## Como Executar o Projeto
 
