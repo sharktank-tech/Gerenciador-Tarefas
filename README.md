@@ -47,23 +47,15 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
     pip install -r requirements.txt
     ```
 
-4. No arquivo `config.py` na raiz do projeto edite as configurações:
-
-    ```python
-    class Config:
-        SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
-        SQLALCHEMY_TRACK_MODIFICATIONS = False
-        SECRET_KEY = 'sua-chave-secreta'
-    ```
 
 5. Execute a aplicação:
 
     ```sh
-    python3 run.py
+    python3 run
     ```
 
-6. Acesse a aplicação no seu navegador:
+4. Acesse a aplicação no seu navegador:
 
     ```
-    http://127.0.0.1:000
+    http://127.0.0.1:5000
     ```
