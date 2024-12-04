@@ -31,7 +31,7 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
 
     ```sh
     git clone https://github.com/sharktank-tech/Tarefas
-    cd seu-repositorio
+    cd /Tarefas ou seu-repositorio
     ```
 
 2. Crie um ambiente virtual:
@@ -47,25 +47,23 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
     pip install -r requirements.txt
     ```
 
-4. Crie o arquivo `config.py` na raiz do projeto e adicione as seguintes configurações:
+4. No arquivo `config.py` na raiz do projeto edite as configurações:
 
     ```python
-    SECRET_KEY = 'sua_chave_secreta_aqui'
-    MAIL_SERVER = 'smtp.seuprovedor.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = 'seu_email@dominio.com'
-    MAIL_PASSWORD = 'sua_senha'
+    class Config:
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
+        SQLALCHEMY_TRACK_MODIFICATIONS = False
+        SECRET_KEY = 'sua-chave-secreta'
     ```
 
 5. Execute a aplicação:
 
     ```sh
-    flask run
+    python3 run.py
     ```
 
 6. Acesse a aplicação no seu navegador:
 
     ```
-    http://127.0.0.1:5000
+    http://127.0.0.1:000
     ```
