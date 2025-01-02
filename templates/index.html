@@ -5,50 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anotações</title>
     <link rel="shortcut icon" href="static/images/lista-de-tarefas.png">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
-    <script src="static/scripts/script.js"></script> <!-- Include custom script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="static/scripts/script.js"></script>
 </head>
-<body>
-    <div class="content">
-        <header>
-            <h1>Tarefas</h1>
-        </header>
+<body class="bg-gray-100 font-sans text-gray-800">
 
-        <main>
-            <div class="paragraphs-container">
-                {% if data %}
-                    {% for tarefa in data %}
-                        <div class="tarefa">
-                            <div class="tarefa-info">
-                                <p>ID: {{ tarefa[0] }}</p>
-                                <p>Descrição: {{ tarefa[1] }}</p>
-                                <p>Data: {{ tarefa[2]|format_date }}</p> <!-- Aplica o filtro de formatação de data -->
-                            </div>
-                            <div class="status-container {% if tarefa[3] == 'Pendente' %}status-pendente{% elif tarefa[3] == 'Concluído' %}status-concluido{% endif %}">
-                                <p>Status:</p>
-                                <div class="status-content">{{ tarefa[3] }}</div>
-                            </div>
-                            <div class="tarefa-buttons">
-                                <form action="/editar_tarefas/{{ tarefa[0] }}" method="GET">
-                                    <button type="submit" class="editar">&#x270E; Editar</button>
-                                </form>
-                                <form action="/excluir_tarefas/{{ tarefa[0] }}" method="POST">
-                                    <button type="submit" class="excluir">&#x2212; Exclui</button>
-                                </form>
-                                <a href="/add_tarefas" class="btn-adicionar">&#x2b; Adicionar</a>
-                                <a href="/enviar_email" class="btn-enviar">&#x2709; Relatório</a>
+    <!-- mensagens flash -->
+    <div class="fixed top-0 left-0 w-full z-50">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div id="flash-message" class="bg-gray-800 text-white py-2">
+              {% for category, message in messages %}
+                <div class="text-center">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <header class="p-4">
+            <h1 class="text-2xl font-bold text-center text-blue-600">Tarefas</h1>
+        </header>
+    </div>
+
+    <main class="pt-20">
+        <div class="max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+            {% if data %}
+                {% for tarefa in data %}
+                <div class="border-b border-gray-200 pb-4 mb-4">
+                    <div class="mb-2">
+                        <p><span class="font-semibold">ID:</span> {{ tarefa[0] }}</p>
+                        <p><span class="font-semibold">Descrição:</span> {{ tarefa[1] }}</p>
+                        <p><span class="font-semibold">Data:</span> {{ tarefa[2]|format_date }}</p> <!--filtro de formatação de data -->
+                    </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="font-semibold">Status:</p>
+                            <div class="px-2 py-1 rounded
+                                {% if tarefa[3] == 'Pendente' %}bg-yellow-100 text-yellow-700{% elif tarefa[3] == 'Concluído' %}bg-green-100 text-green-700{% endif %}">
+                                {{ tarefa[3] }}
                             </div>
                         </div>
-                        <hr class="linha-separadora">
-                    {% endfor %}
-                {% else %}
-                    <p>Nenhum resultado encontrado.</p>
-                    <a href="/add_tarefas" class="btn-adicionar">&#x2b; Adicionar</a>
-                {% endif %}
-            </div>
-        </main>
+                        <div class="flex space-x-2">
+                            <form action="/editar_tarefas/{{ tarefa[0] }}" method="GET">
+                                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">✏️ Editar</button>
+                            </form>
+                            <form action="/excluir_tarefas/{{ tarefa[0] }}" method="POST">
+                                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">➖ Excluir</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center text-gray-600">Nenhum resultado encontrado.</p>
+                <div class="mt-4 flex justify-center">
+                    <a href="/add_tarefas" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">➕ Adicionar</a>
+                </div>
+            {% endif %}
+        </div>
+    </main>
 
-    </div>
+    <!-- Botão adicionar no canto inferior direito -->
+    <a href="/add_tarefas"
+       class="fixed bottom-6 right-6 bg-green-500 text-black w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-green-600">
+       <span class="text-2xl font-bold">&#43;</span>
+    </a>
 </body>
 </html>

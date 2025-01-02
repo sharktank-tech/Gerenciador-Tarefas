@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import sqlite3
 import smtplib
-import re
 import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -100,6 +99,8 @@ def enviar_email_route():
 
         try:
             enviar_email(destinatario, 'Relatório de Tarefas', tarefas_formatadas)
+            n_tr = len(tarefas_formatadas)
+            flash(f"Email com {n_tr} tarefas foi enviado ")
             return redirect(url_for('ver_tarefas'))
         except Exception as e:
             return f"Erro ao enviar e-mail: {str(e)}"
@@ -139,4 +140,4 @@ def formatar_tarefas(tarefas):
 
 if __name__ == '__main__':
     criar_tabela()
-    app.run(host='0.0.0.0', port=81)
+    app.run(debug=True, host='0.0.0.0', port=81)
