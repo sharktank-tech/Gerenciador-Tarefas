@@ -12,10 +12,12 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
 
 ## Tecnologias Utilizadas
 
-- Flask (Python)
+- Flask-Python
 - HTML
 - CSS
-- JavaScript (jQuery)
+- JavaScript
+- JSDelivr
+- Tailwind CSS
 - SQLite
 
 ## Como Executar o Projeto
@@ -30,7 +32,7 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
 1. Clone o repositório:
 
     ```sh
-    git clone https://github.com/sharktank-tech/Tarefas
+    git clone https://github.com/sharktank-tech/Gerenciador-Tarefas
     cd /Tarefas ou seu-repositorio
     ```
 
@@ -51,11 +53,11 @@ Este é um projeto de gerenciamento de tarefas que permite adicionar, editar, ex
 5. Execute a aplicação:
 
     ```sh
-    python3 run
+    python3 main.py
     ```
 
 4. Acesse a aplicação no seu navegador:
 
     ```
-    http://127.0.0.1:5000
+    http://127.0.0.1:81
     ```
