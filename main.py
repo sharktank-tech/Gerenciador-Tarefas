@@ -35,7 +35,19 @@ def executar_query(query, params=()):
 @app.route('/')
 def ver_tarefas():
     tarefas = executar_query("SELECT id, descricao, data, status FROM tarefas").fetchall()
-    return render_template('index.html', data=tarefas if tarefas else None)
+
+    resultados = executar_query("""SELECT 
+        COUNT(id) AS total, 
+        SUM(CASE WHEN status = 'Concluído' THEN 1 ELSE 0 END) AS concluidas,
+        SUM(CASE WHEN status = 'Pendente' THEN 1 ELSE 0 END) AS pendentes
+    FROM tarefas;
+    """).fetchone()
+
+    tarefas_totais = resultados[0]
+    tarefas_concluidas = resultados[1]
+    tarefas_pendentes = resultados[2]
+
+    return render_template('index.html', tarefas_pendentes=tarefas_pendentes, tarefas_totais=tarefas_totais, tarefas_concluidas=tarefas_concluidas, data=tarefas if tarefas else None)
 
 # Rota para excluir uma tarefa
 @app.route('/excluir_tarefas/<int:id>', methods=['GET','POST'])
